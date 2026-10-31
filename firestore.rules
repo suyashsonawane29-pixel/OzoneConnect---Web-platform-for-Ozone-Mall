@@ -1,0 +1,91 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.role == 'admin' ||
+        exists(/databases/$(database)/documents/adminUsers/$(request.auth.uid))
+      );
+    }
+
+    // 1. Stores: Public can read published stores. Only admin can write.
+    match /stores/{storeId} {
+      allow read: if resource.data.isPublished == true || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // 2. Offers: Public can read published offers. Only admin can write.
+    match /offers/{offerId} {
+      allow read: if resource.data.isPublished == true || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // 3. Events: Public can read published events. Only admin can write.
+    match /events/{eventId} {
+      allow read: if resource.data.isPublished == true || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // 4. Dining Outlets: Public can read published. Only admin can write.
+    match /diningOutlets/{outletId} {
+      allow read: if resource.data.isPublished == true || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // 5. Entertainment: Public can read published. Only admin can write.
+    match /entertainment/{activityId} {
+      allow read: if resource.data.isPublished == true || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // 6. Gallery: Public can read published. Only admin can write.
+    match /gallery/{imageId} {
+      allow read: if resource.data.isPublished == true || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // 7. Site Content & Visitor Info & FAQs: Public read, admin write.
+    match /siteContent/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /visitorInformation/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /faqs/{faqId} {
+      allow read: if resource.data.isPublished == true || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // 8. Contact Enquiries: Public can submit (create only), only Admin can read or update/delete
+    match /enquiries/{enquiryId} {
+      allow create: if request.resource.data.name is string &&
+                       request.resource.data.email is string &&
+                       request.resource.data.subject is string &&
+                       request.resource.data.message is string;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // 9. Event Registrations: Public can register, only Admin can read all
+    match /eventRegistrations/{regId} {
+      allow create: if request.resource.data.fullName is string &&
+                       request.resource.data.email is string &&
+                       request.resource.data.eventId is string;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // 10. Admin Users list: Only authenticated admins
+    match /adminUsers/{userId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
