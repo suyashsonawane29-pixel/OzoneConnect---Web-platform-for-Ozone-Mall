@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Breadcrumbs, BreadcrumbItem } from './Breadcrumbs';
 
 interface PageHeroProps {
@@ -10,6 +10,9 @@ interface PageHeroProps {
   badge?: string;
 }
 
+const DEFAULT_FALLBACK_HERO =
+  'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1920&q=80';
+
 export const PageHero: React.FC<PageHeroProps> = ({
   title,
   subtitle,
@@ -18,22 +21,40 @@ export const PageHero: React.FC<PageHeroProps> = ({
   imageUrl,
   badge,
 }) => {
+  const [currentImg, setCurrentImg] = useState<string | undefined>(imageUrl);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setCurrentImg(imageUrl);
+    setIsLoaded(false);
+  }, [imageUrl]);
+
   return (
     <div className="relative bg-charcoal-950 text-white overflow-hidden py-16 lg:py-24 border-b border-charcoal-800">
-      {/* Background with subtle gradient & overlay */}
-      {imageUrl && (
-        <div className="absolute inset-0 z-0">
+      {/* Background with vibrant display & intelligent directional vignette */}
+      {currentImg && (
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
-            src={imageUrl}
+            src={currentImg}
             alt={title}
-            className="w-full h-full object-cover opacity-25 filter brightness-75 scale-105 transform animate-pulse duration-1000"
+            onLoad={() => setIsLoaded(true)}
+            onError={() => {
+              if (currentImg !== DEFAULT_FALLBACK_HERO) {
+                setCurrentImg(DEFAULT_FALLBACK_HERO);
+              }
+            }}
+            style={{ opacity: isLoaded ? 0.75 : 0.35 }}
+            className="w-full h-full object-cover object-center transition-opacity duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/80 to-charcoal-950/50" />
+          {/* Left-to-right gradient: dark backing behind text on the left, translucent over image on the right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/90 via-charcoal-950/60 to-charcoal-950/10" />
+          {/* Subtle vertical vignette */}
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-transparent to-charcoal-950/20" />
         </div>
       )}
 
       {/* Decorative Gold Radial Glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold-500/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-6">

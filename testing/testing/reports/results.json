@@ -1,0 +1,229 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config",
+      "testing/playwright.config.ts"
+    ],
+    "configFile": "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\testing\\playwright.config.ts",
+    "rootDir": "C:/Users/SUYASH/OneDrive/Dokumen/Ozone Mall/testing/testing/playwright",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/SUYASH/OneDrive/Dokumen/Ozone Mall/testing/testing/reports/test-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "Desktop Chrome",
+        "name": "Desktop Chrome",
+        "testDir": "C:/Users/SUYASH/OneDrive/Dokumen/Ozone Mall/testing/testing/playwright",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/SUYASH/OneDrive/Dokumen/Ozone Mall/testing/testing/reports/test-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "C:/Users/SUYASH/OneDrive/Dokumen/Ozone Mall/testing/testing/playwright",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/SUYASH/OneDrive/Dokumen/Ozone Mall/testing/testing/reports/test-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "Tablet",
+        "name": "Tablet",
+        "testDir": "C:/Users/SUYASH/OneDrive/Dokumen/Ozone Mall/testing/testing/playwright",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\testing\\testing\\reports\\test-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "name": "Desktop Chrome",
+        "testDir": "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\testing\\testing\\playwright",
+        "snapshotDir": "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\testing\\testing\\playwright",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:5173",
+          "trace": "on",
+          "screenshot": "on",
+          "video": "off",
+          "headless": true,
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Desktop Chrome"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\testing\\testing\\reports\\test-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "name": "Mobile Safari",
+        "testDir": "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\testing\\testing\\playwright",
+        "snapshotDir": "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\testing\\testing\\playwright",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:5173",
+          "trace": "on",
+          "screenshot": "on",
+          "video": "off",
+          "headless": true,
+          "viewport": {
+            "width": 390,
+            "height": 664
+          },
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E148 Safari/604.1",
+          "screen": {
+            "width": 390,
+            "height": 844
+          },
+          "deviceScaleFactor": 3,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "webkit"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Mobile Safari"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\testing\\testing\\reports\\test-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "name": "Tablet",
+        "testDir": "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\testing\\testing\\playwright",
+        "snapshotDir": "C:\\Users\\SUYASH\\OneDrive\\Dokumen\\Ozone Mall\\testing\\testing\\playwright",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:5173",
+          "trace": "on",
+          "screenshot": "on",
+          "video": "off",
+          "headless": true,
+          "viewport": {
+            "width": 810,
+            "height": 1080
+          },
+          "actionTimeout": 15000,
+          "navigationTimeout": 30000,
+          "userAgent": "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E148 Safari/604.1",
+          "deviceScaleFactor": 2,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "webkit"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Tablet"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "testing/reports/html-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "testing/reports/results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [],
+  "errors": [
+    {
+      "message": "Error: No tests found",
+      "stack": "Error: No tests found"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-11-01T08:41:45.632Z",
+    "duration": 8.47700000000009,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

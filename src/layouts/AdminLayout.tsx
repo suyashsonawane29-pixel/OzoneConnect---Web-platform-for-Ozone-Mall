@@ -34,7 +34,7 @@ export const AdminLayout: React.FC = () => {
     return <LoadingSpinner fullPage message="Authenticating administrator access..." />;
   }
 
-  if (!isAuthenticated) {
+  if (!isAuthenticated || currentUser?.role !== 'admin') {
     return <Navigate to="/admin/login" state={{ from: location }} replace />;
   }
 

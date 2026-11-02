@@ -33,7 +33,7 @@ export const EntertainmentPage: React.FC = () => {
         subtitle="ENDLESS FAMILY THRILLS"
         description="Experience 4K Dolby Atmos cinema, state-of-the-art cosmic UV bowling, 360-degree virtual reality rides, and safe toddler play parks at Ozone Mall Ojhar."
         breadcrumbs={[{ label: 'Entertainment & Cineplex' }]}
-        imageUrl="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80"
+        imageUrl="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1920&q=80"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">

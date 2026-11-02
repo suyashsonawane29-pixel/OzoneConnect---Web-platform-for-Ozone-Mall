@@ -93,3 +93,24 @@ export async function getRegistrationsForEvent(eventId: string): Promise<EventRe
   const list = getLocalRegistrations();
   return list.filter((r) => r.eventId === eventId);
 }
+
+export async function getRegistrationsByEmail(email: string): Promise<EventRegistration[]> {
+  if (!email) return [];
+  if (isFirebaseConfigured && db) {
+    try {
+      const colRef = collection(db, COLLECTION_NAME);
+      const q = query(colRef, where('email', '==', email.toLowerCase().trim()));
+      const snap = await getDocs(q);
+      const results: EventRegistration[] = [];
+      snap.forEach((docSnap) => {
+        results.push({ id: docSnap.id, ...docSnap.data() } as EventRegistration);
+      });
+      return results;
+    } catch (err) {
+      console.warn('Firestore fetch registrations by email error', err);
+    }
+  }
+
+  const list = getLocalRegistrations();
+  return list.filter((r) => r.email.toLowerCase().trim() === email.toLowerCase().trim());
+}

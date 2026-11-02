@@ -256,9 +256,18 @@ export interface AboutPageContent {
   updatedAt: string;
 }
 
-export interface AdminUser {
+export interface AppUser {
   uid: string;
   email: string;
   displayName: string;
-  role: 'admin' | 'editor';
+  phone?: string;
+  role: 'admin' | 'member';
+  membershipTier?: 'Silver' | 'Gold' | 'Platinum';
+  memberSince?: string;
+  avatarUrl?: string;
+  favoriteStores?: string[];
+  points?: number;
 }
+
+export type AdminUser = AppUser;
+

@@ -224,6 +224,9 @@ export const Footer: React.FC = () => {
           <p>© {new Date().getFullYear()} Ozone Mall, Ojhar, Maharashtra. All rights reserved.</p>
 
           <div className="flex items-center space-x-6">
+            <Link to="/login" className="hover:text-gold-300 transition-colors">
+              Privilege Club
+            </Link>
             <Link to="/about" className="hover:text-charcoal-200 transition-colors">
               About
             </Link>

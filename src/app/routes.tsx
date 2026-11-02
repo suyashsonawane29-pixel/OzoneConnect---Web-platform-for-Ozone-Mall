@@ -18,6 +18,12 @@ import { VisitorInformationPage } from '../pages/visitor/VisitorInformationPage'
 import { ContactPage } from '../pages/contact/ContactPage';
 import { NotFoundPage } from '../pages/notFound/NotFoundPage';
 
+// Member / User Auth Pages
+import { UserLoginPage } from '../pages/auth/UserLoginPage';
+import { UserSignupPage } from '../pages/auth/UserSignupPage';
+import { UserProfilePage } from '../pages/auth/UserProfilePage';
+import { GooglePopupPage } from '../pages/auth/GooglePopupPage';
+
 // Admin Pages
 import { AdminLoginPage } from '../pages/admin/AdminLoginPage';
 import { AdminDashboardPage } from '../pages/admin/AdminDashboardPage';
@@ -50,8 +56,14 @@ export const AppRoutes: React.FC = () => {
         <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/visitor-information" element={<VisitorInformationPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/profile" element={<UserProfilePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
+
+      {/* Member Authentication (Standalone Luxury Full-Screen) */}
+      <Route path="/login" element={<UserLoginPage />} />
+      <Route path="/signup" element={<UserSignupPage />} />
+      <Route path="/auth/google-popup" element={<GooglePopupPage />} />
 
       {/* Admin Authentication (Standalone) */}
       <Route path="/admin/login" element={<AdminLoginPage />} />
